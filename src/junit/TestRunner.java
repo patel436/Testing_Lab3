@@ -13,7 +13,7 @@ public class TestRunner {
 	 */
 
 	public static void main(String[] args) {
-		Result result = JUnitCore.runClasses(TrignometricFunctionsTest.class);
+		Result result = JUnitCore.runClasses(TrignometricFunctionTestSuit.class);
 
 		for (Failure failure : result.getFailures()) {
 			System.out.println(failure.toString());

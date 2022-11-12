@@ -13,40 +13,24 @@ import org.junit.runners.Parameterized;
 import math.TrignometricFunctions;
 
 @RunWith(Parameterized.class)
-public class TrignometricFunctionsTest {
+public class TrignometricDegreeFunctionsTest {
+
 	double decimalpoints = 0.0001;
 	TrignometricFunctions functions;
-	int radian;
 	int degree;
 
-	public TrignometricFunctionsTest(int radian, int degree) {
-		this.radian = radian;
+	public TrignometricDegreeFunctionsTest(int degree) {
 		this.degree = degree;
 	}
 
-	@Parameterized.Parameters(name = "{index}: Radian = {0}, Degree = {1}")
+	@Parameterized.Parameters(name = "{index}: Degree = {0}")
 	public static Collection functionValues() {
-		return Arrays.asList(new Object[][] { { 45, 170 }, { 90, 190 }, { 100, 280 }, { 180, 290 }, { 270, 350 }, {-6 ,90} });
+		return Arrays.asList(new Object[][] { {170}, {190}, {280}, {290}, {350} });
 	}
 
 	@Before
 	public void initialize() {
 		functions = new TrignometricFunctions();
-	}
-
-	@Test
-	public void testSin() {
-		assertEquals(Math.sin(radian), functions.sin(radian), decimalpoints);
-	}
-
-	@Test
-	public void testCos() {
-		assertEquals(Math.cos(radian), functions.cos(radian), decimalpoints);
-	}
-
-	@Test
-	public void testTan() {
-		assertEquals(Math.tan(radian), functions.tan(radian), decimalpoints);
 	}
 
 	@Test
@@ -69,8 +53,4 @@ public class TrignometricFunctionsTest {
 		assertEquals(Math.toRadians(degree), functions.toRadian(degree), decimalpoints);
 	}
 
-	@Test
-	public void testToDegree() {
-		assertEquals(Math.toDegrees(radian), functions.toDegree(radian), decimalpoints);
-	}
 }
