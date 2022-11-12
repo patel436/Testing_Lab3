@@ -24,9 +24,9 @@ public class TrignometricFunctionsTest {
 		this.degree = degree;
 	}
 
-	@Parameterized.Parameters
+	@Parameterized.Parameters(name = "{index}: Radian = {0}, Degree = {1}")
 	public static Collection functionValues() {
-		return Arrays.asList(new Object[][] { { 45, 170 }, { 90, 190 }, { 100, 280 }, { 180, 290 }, { 270, 350 } });
+		return Arrays.asList(new Object[][] { { 45, 170 }, { 90, 190 }, { 100, 280 }, { 180, 290 }, { 270, 350 }, {-6 ,90} });
 	}
 
 	@Before

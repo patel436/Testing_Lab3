@@ -13,24 +13,17 @@ pipeline {
 
         stage('Build'){
             steps{
-                sh 'mkdir lib'
-                sh 'cd lib/ ; wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.0/junit-platform-console-standalone-1.7.0-all.jar'
-                sh 'cd src/junit ; javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" TrignometricFunctionsTest.java TestRunner.java'
+                sh 'javac -d bin -cp bin:lib/junit-1.7.jar src/math/TrignometricFunctions.java src/junit/TrignometricFunctionsTest.java src/junit/TestRunner.java '
             }
         }
 
         stage('Test'){
             steps{
-                sh 'cd src/junit ; java -cp ../lib/junit-platform-console-standalone-1.7.0-all.jar TrignometricFunctionsTest'
+                sh 'java -cp bin:lib/junit-1.7.jar junit.TestRunner'
        
             }
         }
-
-        stage('Deploy'){
-            steps{
-                sh 'cd src/ ; java TestRunner' 
-            }
-        }
+        
     }
 
 }

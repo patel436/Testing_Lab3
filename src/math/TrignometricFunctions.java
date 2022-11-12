@@ -17,21 +17,13 @@ public class TrignometricFunctions {
 		}
 
 		radian %= 2 * PI;
-		if (radian < 0) {
-			radian = 2 * PI - radian;
-		}
-		int sign = 1;
-		if (radian > PI) {
-			radian -= PI;
-			sign = -1;
-		}
 		final int PRECISION = 50;
 		double temp = 0;
 		for (int i = 0; i < PRECISION; i++) {
 			temp += power(-1, i) * (power(radian, 2 * i + 1) / fact(2 * i + 1));
 		}
 
-		return sign * temp;
+		return temp;
 	}
 
 	public double cos(double radian) {
@@ -41,20 +33,12 @@ public class TrignometricFunctions {
 		}
 
 		radian %= 2 * PI;
-		if (radian < 0) {
-			radian = 2 * PI - radian;
-		}
-		int sign = 1;
-		if (radian < PI) {
-			radian -= PI;
-			sign = -1;
-		}
 		final int PRECISION = 50;
 		double cos = 1;
 		for (int i = 2, j = 1; i < PRECISION; i = i + 2, j++)
 			cos += power(-1, j) * (power(radian, i) / fact(i));
 
-		return sign * cos;
+		return cos;
 	}
 
 	public double tan(double radian) {
