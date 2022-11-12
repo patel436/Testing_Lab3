@@ -25,7 +25,7 @@ public class TrignometricDegreeFunctionsTest {
 
 	@Parameterized.Parameters(name = "{index}: Degree = {0}")
 	public static Collection<Object> functionValues() {
-		return Arrays.asList(new Object[] { 47, 170, 190, 280, 290, 350 });
+		return Arrays.asList(new Object[] { -6, 47, 170, 190, 280, 290, 350 });
 	}
 
 	@Before

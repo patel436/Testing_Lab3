@@ -24,7 +24,7 @@ public class TrignometricRadianFunctionsTest {
 
 	@Parameterized.Parameters(name = "{index}: Radian = {0}")
 	public static Collection<Object> functionValues() {
-		return Arrays.asList(new Object[] { 32, 90, 100, 180, 270, 330 });
+		return Arrays.asList(new Object[] { -6, 32, 90, 100, 180, 270, 330 });
 	}
 
 	@Before
