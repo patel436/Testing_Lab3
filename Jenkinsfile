@@ -14,14 +14,13 @@ pipeline {
         stage('Build'){
             steps{
                 sh 'mkdir lib'
-                sh 'cd lib/ ; wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.0/junit-platform-console-standalone-1.7.0-all.jar'
-                sh 'cd src/junit ; javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" TrignometricFunctionsTest.java TestRunner.java'
+                sh 'cd src/junit/ ; javac -cp "../lib/junit-jupiter-5.8.1.jar" TrignometricFunctionsTest.java TestRunner.java'
             }
         }
 
         stage('Test'){
             steps{
-                sh 'cd src/junit ; java -jar ../lib/junit-platform-console-standalone-1.7.0-all.jar -cp "." --select-class TrignometricFunctionsTest --reports-dir="reports"'
+                sh 'cd src/junit/ ; java -jar ../lib/junit-jupiter-5.8.1.jar -cp "." --select-class TrignometricFunctionsTest --reports-dir="reports"'
                 junit 'src/reports/*-jupiter.xml'
             }
         }
