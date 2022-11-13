@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
     stages {
 
@@ -13,7 +12,7 @@ pipeline {
 
         stage('Build'){
             steps{
-                sh 'javac -d bin -cp bin:lib/junit-1.7.jar src/math/TrignometricFunctions.java src/junit/TrignometricFunctionsTest.java src/junit/TestRunner.java '
+                sh 'javac -d bin -cp bin:lib/junit-1.7.jar src/math/TrignometricFunctions.java src/junit/TrignometricFunctionTestSuit.java src/junit/TrignometricRadianFunctionsTest.java src/junit/TrignometricDegreeFunctionsTest.java src/junit/TestRunner.java '
             }
         }
 
@@ -25,5 +24,4 @@ pipeline {
         }
         
     }
-
 }
